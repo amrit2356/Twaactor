@@ -7,9 +7,6 @@ consumer_secret=""
 access_token=""
 access_token_secret=""
 
-class TwitterStreamer():
-    def stream_tweets(self, fetched tweets_filename, hash tag list):
-        pass 
     
 class StdOutListener():
     def on_data(self,data):
