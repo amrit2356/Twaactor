@@ -2,17 +2,29 @@ from tweepy import Stream
 from tweepy import OAuthHandler
 from tweepy.streaming import StreamListener
 
-import twitter_credentials
+consumer_key=""
+consumer_secret=""
+access_token=""
+access_token_secret=""
 
 class TwitterStreamer():
     def stream_tweets(self, fetched tweets_filename, hash tag list):
         pass 
     
+class StdOutListener():
     def on_data(self,data):
         print(data)
         return true
-
-    def off_data(self,data):
+    
+    def on_error(self,data):
         print(status)
+
+if __name__ =="__main__":
+    listener=StdOutListener()
+    auth=OAuthHandler(consumer_key,consumer_secret)
+    auth.set_access_token(access_token,access_token_secret)
+    
+    stream=Stream(auth,listener)
+    stream.filter(track=['falcon','Qatar'])
 
 
