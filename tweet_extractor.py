@@ -8,8 +8,20 @@ consumer_secret="lR645zIuPcNDVgp9h1RaszRkl0vPYKj4DXmZS0GxkvKkGgcIob"
 access_token="1200417373729148928-eHpoZwI5bduQ64MBtEq1GugcgWlcjK"
 access_token_secret="4vxwdwZQBQnDzrVzcUWxQBB8hN8EkISiDt7QhZDkUvooc"
 
-    
+class TwitterStreamer():
+    """
+    The purpose of this class is to view live stream tweets.....
+    """     
+    def stream_tweets(self,fetched_tweets_filename,hash_tag_list):
+        pass
+
 class StdOutListener(StreamListener):
+    """
+    
+    """
+    def init(self, fetched_tweets_filename):
+        self.fetched_tweets_filename=fetched_tweets_filename
+
     def on_data(self,data):
         df=pd.read_json(data,orient='records', lines=True)
         pandas_data=pd.DataFrame(df)
