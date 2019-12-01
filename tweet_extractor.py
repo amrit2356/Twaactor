@@ -24,7 +24,7 @@ class StdOutListener(StreamListener):
 
     def on_data(self,data):
         df=pd.read_json(data,orient='records', lines=True)
-        pandas_data=pd.DataFrame(df)
+        pd.DataFrame(df)
         df.to_csv('live_stream_test.csv')
         return True
     

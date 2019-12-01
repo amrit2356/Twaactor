@@ -1,6 +1,5 @@
 #Install tweepy: python -m pip install tweepy --user
 
-#import twitter_credentials
 import GetOldTweets3 as got
 import pandas as pd
 
