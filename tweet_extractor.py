@@ -1,19 +1,34 @@
 from tweepy import Stream
 from tweepy import OAuthHandler
 from tweepy.streaming import StreamListener
+import pandas as pd
+import json
+consumer_key="9KSy30k47bFDOT2fKfXWZSzTZ"
+consumer_secret="lR645zIuPcNDVgp9h1RaszRkl0vPYKj4DXmZS0GxkvKkGgcIob"
+access_token="1200417373729148928-eHpoZwI5bduQ64MBtEq1GugcgWlcjK"
+access_token_secret="4vxwdwZQBQnDzrVzcUWxQBB8hN8EkISiDt7QhZDkUvooc"
 
-consumer_key=""
-consumer_secret=""
-access_token=""
-access_token_secret=""
+class TwitterStreamer():
+    """
+    The purpose of this class is to view live stream tweets.....
+    """     
+    def stream_tweets(self,fetched_tweets_filename,hash_tag_list):
+        pass
 
+class StdOutListener(StreamListener):
+    """
     
-class StdOutListener():
+    """
+    def init(self, fetched_tweets_filename):
+        self.fetched_tweets_filename=fetched_tweets_filename
+
     def on_data(self,data):
-        print(data)
-        return true
+        df=pd.read_json(data,orient='records', lines=True)
+        pd.DataFrame(df)
+        df.to_csv('live_stream_test.csv')
+        return True
     
-    def on_error(self,data):
+    def on_error(self,status):
         print(status)
 
 if __name__ =="__main__":
@@ -22,6 +37,8 @@ if __name__ =="__main__":
     auth.set_access_token(access_token,access_token_secret)
     
     stream=Stream(auth,listener)
-    stream.filter(track=['falcon','Qatar'])
+    stream.filter(track=['Qatar'])
+   
+
 
 
